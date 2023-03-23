@@ -34,10 +34,6 @@ func createProject(projectPath string) {
 		log.Fatal("Project path must be provided with --project or -p flag")
 	}
 
-	// Create project directories
-	os.MkdirAll(fmt.Sprintf("%s/cmd", projectPath), 0755)
-	os.MkdirAll(fmt.Sprintf("%s/pkg", projectPath), 0755)
-
 	// Create .gitignore file
 	gitignore := []byte("*.log\n*.swp\n*~\n*.out\n*.exe\n*.test\nvendor/\n")
 	os.WriteFile(fmt.Sprintf("%s/.gitignore", projectPath), gitignore, 0644)
